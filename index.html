@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"/>
+  <title>スライド資料</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+    body {
+      margin: 0; padding: 0; background-color: #222;
+      display: flex; justify-content: center; align-items: center;
+      height: 100vh; overflow: hidden; font-family: 'Noto Sans JP', sans-serif;
+    }
+    #loading-screen {
+      position: absolute; color: #fff; font-size: 24px; font-weight: bold;
+      z-index: 9999; display: flex; flex-direction: column; align-items: center;
+    }
+    
+    /* ▼▼▼ 追加・修正したCSS ▼▼▼ */
+    #presentation-wrapper {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: none; /* ロード完了まで隠す */
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    #presentation-area {
+      position: absolute; 
+      width: 1280px; 
+      height: 720px;
+      background-color: #fff; 
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      display: block; 
+      transform-origin: center center;
+    }
+    /* ▲▲▲ ここまで ▲▲▲ */
+
+    #presentation-area > .slide-container {
+      display: none; position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%; overflow: hidden;
+    }
+    #presentation-area > .slide-container.active { display: block; }
+
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(30, 41, 59, 0.1);
+      color: #64748B;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 10000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(4px);
+    }
+    .nav-btn:hover {
+      background-color: rgba(47, 107, 255, 0.9);
+      color: #fff;
+      transform: translateY(-50%) scale(1.1);
+    }
+    #prev-btn { left: 20px; }
+    #next-btn { right: 20px; }
+  </style>
+</head>
+<body style="user-select: none;">
+
+  <div id="loading-screen">
+    <div>スライドを読み込み中... <span id="load-progress">0</span> / 24</div>
+  </div>
+
+  <div id="presentation-wrapper">
+    <div id="presentation-area">
+      <button id="prev-btn" class="nav-btn"><i class="fas fa-chevron-left"></i></button>
+      <button id="next-btn" class="nav-btn"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
+
+  <script>
+    /**
+     * CSS のセレクタを「特定のスライド配下」に限定するスコープ化処理。
+     */
+    function scopeCss(cssText, slideIndex) {
+      const scopePrefix = `[data-slide-index="${slideIndex}"]`;
+      cssText = cssText.replace(/\/\*[\s\S]*?\*\//g, '');
+      
+      const out = [];
+      let i = 0;
+      while (i < cssText.length) {
+        const atMatch = cssText.slice(i).match(/^\s*@([\w-]+)/);
+        if (atMatch) {
+          const atName = atMatch[1].toLowerCase();
+          if (atName === 'keyframes' || atName === '-webkit-keyframes' || atName === 'font-face' || atName === 'import' || atName === 'charset') {
+            const start = i;
+            let depth = 0;
+            let j = i;
+            let foundBrace = false;
+            while (j < cssText.length) {
+              const c = cssText[j];
+              if (c === '{') { depth++; foundBrace = true; }
+              else if (c === '}') { depth--; if (depth === 0) { j++; break; } }
+              else if (c === ';' && !foundBrace) { j++; break; }
+              j++;
+            }
+            out.push(cssText.slice(start, j));
+            i = j;
+            continue;
+          } else if (atName === 'media' || atName === 'supports') {
+            const start = i;
+            let j = cssText.indexOf('{', i);
+            if (j === -1) { out.push(cssText.slice(i)); break; }
+            const prelude = cssText.slice(start, j + 1);
+            let depth = 1;
+            let k = j + 1;
+            while (k < cssText.length && depth > 0) {
+              if (cssText[k] === '{') depth++;
+              else if (cssText[k] === '}') depth--;
+              if (depth === 0) break;
+              k++;
+            }
+            const inner = cssText.slice(j + 1, k);
+            out.push(prelude + scopeCss(inner, slideIndex) + '}');
+            i = k + 1;
+            continue;
+          }
+        }
+        
+        const braceIdx = cssText.indexOf('{', i);
+        if (braceIdx === -1) {
+          out.push(cssText.slice(i));
+          break;
+        }
+        const selectorList = cssText.slice(i, braceIdx).trim();
+        let depth = 1;
+        let k = braceIdx + 1;
+        while (k < cssText.length && depth > 0) {
+          if (cssText[k] === '{') depth++;
+          else if (cssText[k] === '}') depth--;
+          if (depth === 0) break;
+          k++;
+        }
+        const declarations = cssText.slice(braceIdx + 1, k);
+        
+        const scoped = selectorList.split(',').map(sel => {
+          const s = sel.trim();
+          if (!s) return '';
+          if (s === 'body' || s === 'html' || s === 'body html' || s === 'html body') {
+            return scopePrefix;
+          }
+          let cleaned = s.replace(/^\s*(?:html\s+)?body\s+/i, '').replace(/^\s*html\s+/i, '');
+
+          if (cleaned.startsWith('.slide-container')) {
+            cleaned = cleaned.replace(/^\.slide-container/, scopePrefix);
+            return cleaned;
+          }
+          const firstTokenMatch = cleaned.match(/^([^\s>+~]+)/);
+          if (firstTokenMatch) {
+            const firstToken = firstTokenMatch[1];
+            const rest = cleaned.slice(firstToken.length);
+            if (firstToken.startsWith('.') || firstToken.startsWith(':') || firstToken.startsWith('[')) {
+              return `${scopePrefix}${firstToken}${rest}, ${scopePrefix} ${firstToken}${rest}`;
+            }
+          }
+          return `${scopePrefix} ${cleaned}`;
+        }).filter(s => s).join(', ');
+        
+        out.push(scoped + ' {' + declarations + '}');
+        i = k + 1;
+      }
+      return out.join('\n');
+    }
+
+    document.addEventListener("DOMContentLoaded", async function() {
+      const totalSlides = 24;
+
+      const presentationArea = document.getElementById('presentation-area');
+      const presentationWrapper = document.getElementById('presentation-wrapper'); // 追加
+      const progressText = document.getElementById('load-progress');
+      let loadedCount = 0;
+
+      // ▼▼▼ 追加：画面サイズに合わせて縮小する関数 ▼▼▼
+      function resizePresentation() {
+        if (!presentationArea) return;
+        const slideWidth = 1280;
+        const slideHeight = 720;
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+
+        const scale = Math.min(windowWidth / slideWidth, windowHeight / slideHeight);
+        const finalScale = scale * 0.95; // 5%の余白を持たせる
+        presentationArea.style.transform = `scale(${finalScale})`;
+      }
+      window.addEventListener('resize', resizePresentation);
+      // ▲▲▲ ここまで ▲▲▲
+
+      const pendingScripts = [];
+
+      for (let i = 1; i <= totalSlides; i++) {
+        try {
+          const response = await fetch(`${i}.html`);
+          if (response.ok) {
+            const buffer = await response.arrayBuffer();
+            const htmlText = new TextDecoder('utf-8').decode(buffer);
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(htmlText, 'text/html');
+
+            const slideContent = doc.querySelector('.slide-container');
+            if (!slideContent) continue;
+            slideContent.setAttribute('data-slide-index', i);
+
+            const styles = doc.querySelectorAll('style');
+            styles.forEach(style => {
+              const scopedCss = scopeCss(style.textContent, i);
+              const newStyle = document.createElement('style');
+              newStyle.textContent = scopedCss;
+              document.head.appendChild(newStyle);
+            });
+
+            presentationArea.appendChild(slideContent);
+
+            const scripts = doc.querySelectorAll('script');
+            scripts.forEach(scriptTag => {
+              if (scriptTag.src) {
+                pendingScripts.push({ src: scriptTag.src, slideIndex: i });
+              } else {
+                pendingScripts.push({ code: scriptTag.textContent, slideIndex: i });
+              }
+            });
+
+          } else {
+            console.warn(`${i}.html が見つかりませんでした。`);
+          }
+        } catch (error) {
+          console.error(`${i}.html の読み込みに失敗しました:`, error);
+        }
+
+        loadedCount++;
+        progressText.innerText = loadedCount;
+      }
+
+      pendingScripts.forEach(({ src, code, slideIndex }) => {
+        const newScript = document.createElement('script');
+        if (src) {
+          newScript.src = src;
+        } else {
+          newScript.textContent = `
+            (function() {
+              const currentSlide = document.querySelector('[data-slide-index="${slideIndex}"]');
+              if (!currentSlide) return;
+              try {
+                ${code}
+              } catch (err) {
+                console.error('Slide ${slideIndex} script error:', err);
+              }
+            })();
+          `;
+        }
+        document.body.appendChild(newScript);
+      });
+
+      // ▼▼▼ 修正：ロード画面を消してスライドを表示する処理 ▼▼▼
+      document.getElementById('loading-screen').style.display = 'none';
+      presentationWrapper.style.display = 'flex';
+      resizePresentation(); // 初回表示時にもスケールを適用
+      // ▲▲▲ ここまで ▲▲▲
+
+      setTimeout(() => {
+        initPresentation();
+      }, 200);
+    });
+
+    function initPresentation() {
+      const slides = document.querySelectorAll('#presentation-area > .slide-container');
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+
+      if (slides.length === 0) {
+        document.getElementById('presentation-area').innerHTML = '<div style="padding:40px;text-align:center;">スライドが読み込めませんでした。</div>';
+        return;
+      }
+
+      let currentSlideIndex = 0;
+
+      function showSlide(index) {
+        prevBtn.style.display = (index === 0) ? 'none' : 'flex';
+        nextBtn.style.display = (index === slides.length - 1) ? 'none' : 'flex';
+
+        slides.forEach((slide, i) => {
+          if (i !== index && slide.classList.contains('active')) {
+            slide.classList.remove('active', 'is-visible', 'animate-start');
+            const videos = slide.querySelectorAll('video');
+            videos.forEach(vid => { try { vid.pause(); } catch(e){} });
+          }
+
+          if (i === index) {
+            slide.classList.add('active');
+            void slide.offsetHeight;
+
+            setTimeout(() => {
+              slide.classList.add('is-visible');
+              slide.classList.add('animate-start');
+
+              const activeVideos = slide.querySelectorAll('video');
+              activeVideos.forEach(vid => {
+                try {
+                  vid.muted = true;
+                  vid.currentTime = 0;
+                  const playPromise = vid.play();
+                  if (playPromise && playPromise.catch) {
+                    playPromise.catch(err => console.warn("Video autoplay blocked:", err));
+                  }
+                } catch (e) {
+                  console.warn("Video play error:", e);
+                }
+              });
+
+              const iframes = slide.querySelectorAll('iframe');
+              iframes.forEach(iframe => {
+                const src = iframe.src;
+                iframe.src = src;
+              });
+            }, 200);
+          }
+        });
+      }
+
+      prevBtn.addEventListener('click', () => {
+        if (currentSlideIndex > 0) {
+          currentSlideIndex--;
+          showSlide(currentSlideIndex);
+        }
+      });
+
+      nextBtn.addEventListener('click', () => {
+        if (currentSlideIndex < slides.length - 1) {
+          currentSlideIndex++;
+          showSlide(currentSlideIndex);
+        }
+      });
+
+      document.addEventListener('keydown', function(event) {
+        if (event.key === 'ArrowRight' || event.key === 'ArrowDown' || event.key === ' ') {
+          if (currentSlideIndex < slides.length - 1) {
+            currentSlideIndex++;
+            showSlide(currentSlideIndex);
+          }
+        } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+          if (currentSlideIndex > 0) {
+            currentSlideIndex--;
+            showSlide(currentSlideIndex);
+          }
+        }
+      });
+
+      showSlide(currentSlideIndex);
+    }
+  </script>
+</body>
+</html>

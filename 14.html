@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html data-theme="light" lang="ja">
+<head>
+<meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  body { margin: 0; padding: 0; overflow: hidden; font-family: 'Noto Sans JP', sans-serif; }
+  
+  @keyframes slideUpFade {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes pulseSubtle {
+    0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(47, 107, 255, 0.4); }
+    70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(47, 107, 255, 0); }
+    100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(47, 107, 255, 0); }
+  }
+  
+  @keyframes flowRight {
+    0% { transform: translateX(-15px); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateX(15px); opacity: 0; }
+  }
+
+  .anim-item {
+    opacity: 0;
+  }
+
+  .slide-container.animate-start .anim-item {
+    animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  
+  .ai-hub {
+    animation: pulseSubtle 2.5s infinite ease-in-out;
+  }
+  
+  .flow-arrow {
+    animation: flowRight 2s infinite ease-in-out;
+  }
+</style>
+</head>
+<body style="user-select: none;">
+<div class="slide-container" style="position: relative; width: 1280px; height: 720px; overflow: hidden; background-color: #F4F7FC;">
+<!-- Background Shapes -->
+<div data-object="true" data-object-type="shape" id="fabric-obj-0-1781325362667" style="position: absolute; left: 0px; top: 0px; width: 1280px; height: 720px; background-color: #F4F7FC; z-index: 1;"></div>
+<div data-object="true" data-object-type="shape" id="fabric-obj-1-1781325362669" style="position: absolute; left: 830px; top: -100px; width: 450px; height: 450px; background-color: #EAF1F9; border-radius: 50%; z-index: 1;"></div>
+<div data-object="true" data-object-type="shape" id="fabric-obj-2-1781325362670" style="position: absolute; left: -100px; top: 480px; width: 420px; height: 420px; background-color: #E6EEF8; border-radius: 50%; z-index: 1;"></div>
+<!-- Header -->
+<div data-object="true" data-object-type="textbox" id="fabric-obj-3-1781325362670" style="position: absolute; left: 80px; top: 30px; width: 540px; height: 40px; z-index: 10;">
+<p style="font-size: 18px; color: #2F6BFF; font-weight: 800; margin: 0; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.5;"><i class="fas fa-share-nodes" style="margin-right: 8px;"></i>SNS Auto Integration</p>
+</div>
+<!-- Main Title -->
+<div data-object="true" data-object-type="textbox" id="fabric-obj-4-1781325362671" style="position: absolute; left: 80px; top: 70px; width: 1120px; height: 60px; z-index: 10;">
+<h1 style="font-size: 40px; color: #1E293B; font-weight: 900; margin: 0; line-height: 1.2;">②各種SNS自動連携</h1>
+</div>
+<!-- Text Flow Badge -->
+<div class="anim-item" data-object="true" data-object-type="textbox" id="fabric-obj-flowtext" style="animation-delay: 0.1s; position: absolute; left: 190px; top: 140px; width: 900px; height: 75px; z-index: 10; display: flex; justify-content: center;">
+<div style="background-color: #FFFFFF; padding: 16px 32px; border-radius: 12px; display: inline-flex; align-items: center; border-left: 8px solid #2F6BFF; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+<p style="font-size: 26px; color: #1E293B; font-weight: 800; margin: 0; display: flex; align-items: center; gap: 20px;">
+<span style="color: #dc2743; display: flex; align-items: center; white-space: nowrap;"><i class="fab fa-instagram" style="margin-right: 12px;"></i>Instagramを投稿</span>
+<i class="fas fa-arrow-right" style="color: #2F6BFF; font-size: 24px;"></i>
+<span style="color: #2F6BFF; display: flex; align-items: center; white-space: nowrap;"><i class="fas fa-robot" style="margin-right: 12px;"></i>AIが最適化</span>
+<i class="fas fa-arrow-right" style="color: #2F6BFF; font-size: 24px;"></i>
+<span style="color: #10B981; display: flex; align-items: center; white-space: nowrap;"><i class="fas fa-share-nodes" style="margin-right: 12px;"></i>各種SNSに連携</span>
+</p>
+</div>
+</div>
+<!-- Flow Diagram -->
+<div class="anim-item" data-object="true" data-object-type="icon" id="fabric-obj-5-new" style="animation-delay: 0.2s; position: absolute; left: 180px; top: 295px; width: 120px; height: 120px; z-index: 10; display: flex; align-items: center; justify-content: center; background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); border-radius: 30px; box-shadow: 0 10px 30px rgba(220, 39, 67, 0.3);">
+<i class="fab fa-instagram" style="color: #FFFFFF; font-size: 70px;"></i>
+</div>
+<div class="anim-item" data-object="true" data-object-type="icon" id="fabric-obj-6-1781325362671" style="animation-delay: 0.3s; position: absolute; left: 300px; top: 353px; width: 130px; height: 4px; z-index: 5; display: flex; align-items: center; justify-content: center;">
+<div style="position: relative; width: 100%; height: 4px; background: #E2E8F0; border-radius: 2px;">
+<i class="fas fa-chevron-right flow-arrow" style="position: absolute; right: 0; top: -14px; font-size: 32px; color: #E2E8F0;"></i>
+</div>
+</div>
+<div class="anim-item ai-hub" data-object="true" data-object-type="textbox" id="fabric-obj-7-1781325362672" style="animation-delay: 0.4s; position: absolute; left: 430px; top: 285px; width: 140px; height: 140px; z-index: 10;">
+<div style="width: 140px; height: 140px; background: #2F6BFF; border-radius: 50%; box-shadow: 0 10px 30px rgba(47,107,255,0.4); display: flex; flex-direction: column; align-items: center; justify-content: center; color: #FFFFFF;">
+<i class="fas fa-robot" style="font-size: 42px; margin-bottom: 8px;"></i>
+<p style="font-size: 16px; font-weight: 900; margin: 0; text-align: center;">AI最適化</p>
+</div>
+</div>
+<div class="anim-item" data-object="true" data-object-type="icon" id="fabric-obj-8-1781325362672" style="animation-delay: 0.5s; position: absolute; left: 570px; top: 353px; width: 110px; height: 4px; z-index: 5; display: flex; align-items: center; justify-content: center;">
+<div style="position: relative; width: 100%; height: 4px; background: #E2E8F0; border-radius: 2px;">
+<i class="fas fa-chevron-right flow-arrow" style="position: absolute; right: 0; top: -14px; font-size: 32px; color: #E2E8F0;"></i>
+</div>
+</div>
+<div class="anim-item" data-object="true" data-object-type="textbox" id="fabric-obj-9-1781325362672" style="animation-delay: 0.6s; position: absolute; left: 680px; top: 295px; width: 500px; height: 120px; z-index: 10;">
+<div style="display: flex; justify-content: space-between; align-items: center; width: 100%; height: 100%;">
+<div style="width: 100px; height: 100px; background: #FFFFFF; border-radius: 24px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); display: flex; align-items: center; justify-content: center; border-bottom: 4px solid #1877F2;">
+<i class="fab fa-facebook-f" style="color: #1877F2; font-size: 50px;"></i>
+</div>
+<div style="width: 100px; height: 100px; background: #FFFFFF; border-radius: 24px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); display: flex; align-items: center; justify-content: center; border-bottom: 4px solid #4285F4;">
+<i class="fas fa-store" style="color: #4285F4; font-size: 44px;"></i>
+</div>
+<div style="width: 100px; height: 100px; background: #FFFFFF; border-radius: 24px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); display: flex; align-items: center; justify-content: center; border-bottom: 4px solid #00B900;">
+<i class="fab fa-line" style="color: #00B900; font-size: 56px;"></i>
+</div>
+<div style="width: 100px; height: 100px; background: #FFFFFF; border-radius: 24px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); display: flex; align-items: center; justify-content: center; border-bottom: 4px solid #000000;">
+<i class="fab fa-tiktok" style="color: #000000; font-size: 46px;"></i>
+</div>
+</div>
+</div>
+<!-- Three Value Props Cards -->
+<div class="anim-item" data-object="true" data-object-type="textbox" id="fabric-obj-10-1781325362673" style="animation-delay: 0.8s; position: absolute; left: 80px; top: 465px; width: 360px; height: 215px; z-index: 10;">
+<div style="background-color: #FFFFFF; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.04); width: 100%; height: 100%; padding: 28px 24px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; text-align: center;">
+<div style="width: 48px; height: 48px; background-color: #EFF6FF; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;">
+<i class="fas fa-paper-plane" style="font-size: 20px; color: #2F6BFF;"></i>
+</div>
+<p style="font-size: 18px; font-weight: 900; color: #1E293B; margin: 0 0 8px 0;">複数SNSへ同時配信</p>
+<p style="font-size: 13px; font-weight: 500; color: #64748B; margin: 0; line-height: 1.6;">ワンアクションで全プラットフォームへ一括投稿。日々の運用コストと手間を劇的に削減します。</p>
+</div>
+</div>
+<div class="anim-item" data-object="true" data-object-type="textbox" id="fabric-obj-11-1781325362673" style="animation-delay: 0.9s; position: absolute; left: 460px; top: 465px; width: 360px; height: 215px; z-index: 10;">
+<div style="background-color: #FFFFFF; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.04); width: 100%; height: 100%; padding: 28px 24px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; text-align: center;">
+<div style="width: 48px; height: 48px; background-color: #ECFDF5; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;">
+<i class="fas fa-magic" style="font-size: 20px; color: #10B981;"></i>
+</div>
+<p style="font-size: 18px; font-weight: 900; color: #1E293B; margin: 0 0 8px 0;">媒体ごとのAI最適化</p>
+<p style="font-size: 13px; font-weight: 500; color: #64748B; margin: 0; line-height: 1.6;">各SNSの文字数や画像サイズ、ハッシュタグの特性に合わせて、AIが投稿内容を自動で最適化します。</p>
+</div>
+</div>
+<div class="anim-item" data-object="true" data-object-type="textbox" id="fabric-obj-12-1781325362673" style="animation-delay: 1.0s; position: absolute; left: 840px; top: 465px; width: 360px; height: 215px; z-index: 10;">
+<div style="background-color: #FFFFFF; border-radius: 20px; box-shadow: 0 8px 25px rgba(0,0,0,0.04); width: 100%; height: 100%; padding: 28px 24px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; text-align: center;">
+<div style="width: 48px; height: 48px; background-color: #FFFBEB; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px;">
+<i class="fas fa-clock" style="font-size: 20px; color: #F59E0B;"></i>
+</div>
+<p style="font-size: 18px; font-weight: 900; color: #1E293B; margin: 0 0 8px 0;">最適な予約スケジュール</p>
+<p style="font-size: 13px; font-weight: 500; color: #64748B; margin: 0; line-height: 1.6;">ターゲット層が最もアクティブな時間帯を分析し、最も効果的なタイミングで自動的に投稿を実行します。</p>
+</div>
+</div>
+</div>
+<script>
+// index.html がスライド表示時に animate-start クラスを付与するため、
+// このスライド独自の IntersectionObserver は不要。
+</script>
+</body>
+</html>

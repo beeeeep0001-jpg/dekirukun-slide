@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="ja">
+<head>
+<meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  body { margin: 0; padding: 0; overflow: hidden; font-family: 'Noto Sans JP', sans-serif; }
+</style>
+</head>
+<body>
+<div class="slide-container" style="position: relative; width: 1280px; height: 720px; overflow: hidden; background-color: #F4F7FC;">
+
+<!-- ============ Background decoration（統一デザイン） ============ -->
+<div data-object="true" data-object-type="shape" id="bg-base" style="position: absolute; left: 0px; top: 0px; width: 1280px; height: 720px; background-color: #F4F7FC; z-index: 1;"></div>
+<div data-object="true" data-object-type="shape" id="dec-circle-1" style="position: absolute; left: 950px; top: -220px; width: 520px; height: 520px; background-color: #EAF1F9; border-radius: 50%; z-index: 1;"></div>
+<div data-object="true" data-object-type="shape" id="dec-circle-2" style="position: absolute; left: -200px; top: 460px; width: 440px; height: 440px; background-color: #E6EEF8; border-radius: 50%; z-index: 1;"></div>
+
+<!-- ============ Header ============ -->
+<div data-object="true" data-object-type="textbox" id="header-label" style="position: absolute; left: 80px; top: 38px; width: 720px; height: 30px; z-index: 10;">
+<p style="font-size: 17px; color: #2F6BFF; font-weight: 800; margin: 0; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.2;"><i class="fas fa-triangle-exclamation" style="margin-right: 8px;"></i>The Risk of Low AI Trust</p>
+</div>
+
+<!-- Title -->
+<div data-object="true" data-object-type="textbox" id="header-title" style="position: absolute; left: 80px; top: 72px; width: 1120px; height: 44px; z-index: 10;">
+<p style="font-size: 28px; color: #0B162C; font-weight: 900; margin: 0; line-height: 1.2; letter-spacing: -0.01em;">AIに「信用される情報」がないと、<span style="color: #2F6BFF;">悪いイメージで紹介されてしまう</span>ことも</p>
+</div>
+
+<!-- Subtitle -->
+<div data-object="true" data-object-type="textbox" id="header-sub" style="position: absolute; left: 80px; top: 118px; width: 1120px; height: 22px; z-index: 10;">
+<p style="font-size: 14px; color: #64748B; font-weight: 500; margin: 0; line-height: 1.4;">AIは公式情報が不足すると、口コミやネガティブな話題を材料にして企業・店舗を紹介します。</p>
+</div>
+
+<!-- ============ 3 screenshots ============ -->
+
+<!-- Screenshot 1: パワハラが酷い都内の企業 -->
+<div data-object="true" data-object-type="shape" id="shot1-frame" style="position: absolute; left: 80px; top: 156px; width: 360px; height: 448px; background-color: #FFFFFF; border-radius: 14px; box-shadow: 0 12px 28px rgba(11,22,44,0.08); border: 1px solid #E2E8F0; z-index: 5;"></div>
+
+<div data-object="true" data-object-type="image" id="shot1-img" style="position: absolute; left: 92px; top: 168px; width: 336px; height: 398px; z-index: 10; border-radius: 8px; overflow: hidden; border: 1px solid #E2E8F0;">
+<img src="assets/case1.png" alt="パワハラが酷い都内の企業" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;"/>
+</div>
+
+<!-- Search keyword tag -->
+<div data-object="true" data-object-type="shape" id="shot1-tag-bg" style="position: absolute; left: 92px; top: 574px; width: 336px; height: 22px; background-color: #EFF6FF; border-radius: 6px; border-left: 3px solid #2F6BFF; z-index: 11;"></div>
+<div data-object="true" data-object-type="textbox" id="shot1-tag" style="position: absolute; left: 92px; top: 574px; width: 336px; height: 22px; z-index: 12;">
+<p style="font-size: 11px; color: #1E3A8A; font-weight: 800; margin: 0; line-height: 22px; padding-left: 10px;"><i class="fas fa-magnifying-glass" style="margin-right: 6px; font-size: 10px;"></i>「パワハラが酷い都内の企業」</p>
+</div>
+
+<!-- Screenshot 2: 渋谷でゴキブリが出た居酒屋 -->
+<div data-object="true" data-object-type="shape" id="shot2-frame" style="position: absolute; left: 460px; top: 156px; width: 360px; height: 448px; background-color: #FFFFFF; border-radius: 14px; box-shadow: 0 12px 28px rgba(11,22,44,0.08); border: 1px solid #E2E8F0; z-index: 5;"></div>
+
+<div data-object="true" data-object-type="image" id="shot2-img" style="position: absolute; left: 472px; top: 168px; width: 336px; height: 398px; z-index: 10; border-radius: 8px; overflow: hidden; border: 1px solid #E2E8F0;">
+<img src="assets/case2.png" alt="渋谷でゴキブリが出た居酒屋" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;"/>
+</div>
+
+<div data-object="true" data-object-type="shape" id="shot2-tag-bg" style="position: absolute; left: 472px; top: 574px; width: 336px; height: 22px; background-color: #EFF6FF; border-radius: 6px; border-left: 3px solid #2F6BFF; z-index: 11;"></div>
+<div data-object="true" data-object-type="textbox" id="shot2-tag" style="position: absolute; left: 472px; top: 574px; width: 336px; height: 22px; z-index: 12;">
+<p style="font-size: 11px; color: #1E3A8A; font-weight: 800; margin: 0; line-height: 22px; padding-left: 10px;"><i class="fas fa-magnifying-glass" style="margin-right: 6px; font-size: 10px;"></i>「渋谷でゴキブリが出た居酒屋」</p>
+</div>
+
+<!-- Screenshot 3: 大阪で美味しくないお寿司 -->
+<div data-object="true" data-object-type="shape" id="shot3-frame" style="position: absolute; left: 840px; top: 156px; width: 360px; height: 448px; background-color: #FFFFFF; border-radius: 14px; box-shadow: 0 12px 28px rgba(11,22,44,0.08); border: 1px solid #E2E8F0; z-index: 5;"></div>
+
+<div data-object="true" data-object-type="image" id="shot3-img" style="position: absolute; left: 852px; top: 168px; width: 336px; height: 398px; z-index: 10; border-radius: 8px; overflow: hidden; border: 1px solid #E2E8F0;">
+<img src="assets/case3.png" alt="大阪で美味しくないお寿司" style="width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;"/>
+</div>
+
+<div data-object="true" data-object-type="shape" id="shot3-tag-bg" style="position: absolute; left: 852px; top: 574px; width: 336px; height: 22px; background-color: #EFF6FF; border-radius: 6px; border-left: 3px solid #2F6BFF; z-index: 11;"></div>
+<div data-object="true" data-object-type="textbox" id="shot3-tag" style="position: absolute; left: 852px; top: 574px; width: 336px; height: 22px; z-index: 12;">
+<p style="font-size: 11px; color: #1E3A8A; font-weight: 800; margin: 0; line-height: 22px; padding-left: 10px;"><i class="fas fa-magnifying-glass" style="margin-right: 6px; font-size: 10px;"></i>「大阪で美味しくないお寿司」</p>
+</div>
+
+<!-- ============ BOTTOM: Key insight banner（6bと同じデザイン） ============ -->
+<div data-object="true" data-object-type="shape" id="bottom-bg" style="position: absolute; left: 80px; top: 620px; width: 1120px; height: 76px; background: linear-gradient(135deg, #0B162C 0%, #1E3A8A 50%, #2F6BFF 100%); border-radius: 14px; box-shadow: 0 10px 28px rgba(11,22,44,0.25); z-index: 5;"></div>
+
+<!-- Decorative light dot -->
+<div data-object="true" data-object-type="shape" id="bottom-dot" style="position: absolute; left: 1100px; top: 634px; width: 60px; height: 60px; background: radial-gradient(circle, rgba(253,224,71,0.25) 0%, rgba(253,224,71,0) 70%); z-index: 6;"></div>
+
+<!-- Icon -->
+<div data-object="true" data-object-type="shape" id="bottom-icon-bg" style="position: absolute; left: 110px; top: 638px; width: 40px; height: 40px; background: linear-gradient(135deg, #FDE047 0%, #F59E0B 100%); border-radius: 10px; box-shadow: 0 4px 12px rgba(245,158,11,0.4); z-index: 10;"></div>
+<div data-object="true" data-object-type="textbox" id="bottom-icon" style="position: absolute; left: 110px; top: 638px; width: 40px; height: 40px; z-index: 11;">
+<p style="font-size: 20px; color: #78350F; margin: 0; line-height: 40px; text-align: center;"><i class="fas fa-triangle-exclamation"></i></p>
+</div>
+
+<!-- Message -->
+<div data-object="true" data-object-type="textbox" id="bottom-text" style="position: absolute; left: 170px; top: 634px; width: 1010px; height: 50px; z-index: 10;">
+<p style="font-size: 11px; color: #FDE047; font-weight: 800; margin: 0; letter-spacing: 0.12em;"><i class="fas fa-diamond" style="font-size: 8px; margin-right: 6px;"></i>WARNING</p>
+<p style="font-size: 18px; color: #FFFFFF; font-weight: 900; margin: 2px 0 0 0; line-height: 1.35;">AIは実在の企業・店舗名を<span style="background: linear-gradient(180deg, transparent 55%, rgba(253,224,71,0.45) 55%); padding: 0 6px;">ネガティブ文脈で名指し</span>することもあります — AIO対策の欠如が「悪評の拡散」に直結します。</p>
+</div>
+
+</div>
+</body>
+</html>

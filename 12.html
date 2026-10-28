@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html data-theme="light" lang="ja" style=""><head>
+<meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  body { margin: 0; padding: 0; overflow: hidden; font-family: 'Noto Sans JP', sans-serif; }
+  
+  @keyframes tapButton {
+    0%, 100% { transform: translateY(-3px); }
+    50% { transform: translateY(3px); }
+  }
+
+  @keyframes showCard1 {
+    0% { opacity: 0; transform: translateY(10px); }
+    10%, 100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes showCard2 {
+    0%, 25% { opacity: 0; transform: translateY(10px); }
+    35%, 100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes showCard3 {
+    0%, 50% { opacity: 0; transform: translateY(10px); }
+    60%, 100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes showCard4 {
+    0%, 75% { opacity: 0; transform: translateY(10px); }
+    85%, 100% { opacity: 1; transform: translateY(0); }
+  }
+
+  #tap-finger {
+    animation: tapButton 2s ease-in-out infinite;
+  }
+
+  .anim-card1, .anim-card2, .anim-card3, .anim-card4 {
+    opacity: 0;
+  }
+
+  .slide-container.animate-start .anim-card1 { animation: showCard1 4s ease-out forwards; }
+  .slide-container.animate-start .anim-card2 { animation: showCard2 4s ease-out forwards; }
+  .slide-container.animate-start .anim-card3 { animation: showCard3 4s ease-out forwards; }
+  .slide-container.animate-start .anim-card4 { animation: showCard4 4s ease-out forwards; }
+</style>
+</head>
+<body style="">
+<div class="slide-container animate-start" style="position: relative; width: 1280px; height: 720px; overflow: hidden; background-color: #F4F7FC;">
+<div data-object="true" data-object-type="textbox" id="text-label" style="position: absolute; left: 80px; top: 40px; width: 1120px; height: 30px; z-index: 10;">
+<p style="font-size: 18px; color: #2F6BFF; font-weight: 800; margin: 0; letter-spacing: 0.1em; text-transform: uppercase;">
+<i class="fas fa-bolt" style="margin-right: 8px;"></i>SYSTEM FLOW
+</p>
+</div>
+<div data-object="true" data-object-type="textbox" id="text-heading" style="position: absolute; left: 80px; top: 72px; width: 1120px; height: 80px; z-index: 10;">
+<p style="font-size: 32px; color: #1E293B; font-weight: 900; margin: 0; line-height: 1.1; letter-spacing: -0.02em;">
+HubCastを導入したら投稿予定を<span style="color: #2F6BFF;">承認するだけ</span>で、運用を<span style="color: #2F6BFF;">全自動化</span></p>
+</div>
+<div data-object="true" data-object-type="shape" id="phone-bg" style="position: absolute; left: 84px; top: 185px; width: 306px; height: 495px; background-color: #1E293B; border-radius: 36px; z-index: 1; box-shadow: 0 16px 32px rgba(0,0,0,0.2);"></div>
+<div data-object="true" data-object-type="shape" id="phone-screen" style="position: absolute; left: 97px; top: 199px; width: 278px; height: 468px; background-color: #FFFFFF; border-radius: 20px; z-index: 2;"></div>
+<div data-object="true" data-object-type="shape" id="phone-notch" style="position: absolute; left: 188px; top: 199px; width: 100px; height: 18px; background-color: #1E293B; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; z-index: 3;"></div>
+<div data-object="true" data-object-type="shape" id="notif-bg" style="position: absolute; left: 71px; top: 221px; width: 333px; height: 64px; background-color: #2F6BFF; border-radius: 12px; z-index: 10; box-shadow: 0 8px 16px rgba(47,107,255,0.3);"></div>
+<div data-object="true" data-object-type="textbox" id="notif-text" style="position: absolute; left: 88px; top: 231px; width: 297px; height: 46px; z-index: 11;">
+<div style="display: flex; justify-content: space-between; align-items: flex-start;">
+<div>
+<div style="color: white; font-weight: 800; font-size: 13.5px; margin-bottom: 2px;"><i class="fas fa-bell"></i> 明日の投稿内容</div>
+<div style="color: rgba(255,255,255,0.8); font-size: 11px;">AIが作成した投稿の承認待ち：1件</div>
+</div>
+<div style="background: #EF4444; color: white; font-size: 9px; font-weight: bold; padding: 2px 8px; border-radius: 10px;">NEW</div>
+</div>
+</div>
+<div data-object="true" data-object-type="textbox" id="insta-header" style="position: absolute; left: 106px; top: 300px; width: 261px; height: 28px; z-index: 10;">
+<div style="display: flex; align-items: center; justify-content: space-between;">
+<div style="display: flex; align-items: center;">
+<div style="width: 22px; height: 22px; background: #E2E8F0; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 8px;">
+<i class="fas fa-user" style="color: #94A3B8; font-size: 11px;"></i>
+</div>
+<div style="font-size: 12px; font-weight: 800; color: #0F172A;">your_business_official</div>
+</div>
+<i class="fas fa-ellipsis-h" style="color: #94A3B8; font-size: 11px;"></i>
+</div>
+</div>
+<div data-object="true" data-object-type="image" id="grid-image" style="position: absolute; left: 97px; top: 334px; width: 278px; height: 220px; z-index: 10;">
+<img data-height-listener-added="true" src="assets/69bc02d72898ea13b697a5c3104affc0.webp" style="width: 100%; height: 100%; object-fit: cover; object-position: center;"/>
+</div>
+<div data-object="true" data-object-type="textbox" id="insta-actions" style="position: absolute; left: 106px; top: 560px; width: 261px; height: 23px; z-index: 10;">
+<div style="display: flex; gap: 10px; color: #0F172A; font-size: 17px;">
+<i class="far fa-heart"></i>
+<i class="far fa-comment"></i>
+<i class="far fa-paper-plane"></i>
+</div>
+</div>
+<div data-object="true" data-object-type="textbox" id="insta-caption" style="position: absolute; left: 106px; top: 585px; width: 261px; height: 46px; z-index: 10;">
+<p style="font-size: 10px; line-height: 1.3; margin: 0; color: #334155;">
+<span style="font-weight: 800; color: #0F172A;">your_business_official</span> 【期間限定】春の特製ランチコース登場🌸 旬の食材をふんだんに使った特別メニュー。ご予約はプロフィールから→
+  </p>
+</div>
+<div data-object="true" data-object-type="shape" id="btn-bg" style="position: absolute; left: 110px; top: 626px; width: 253px; height: 36px; background-color: #10B981; border-radius: 18px; z-index: 10;"></div>
+<div data-object="true" data-object-type="textbox" id="btn-text" style="position: absolute; left: 110px; top: 626px; width: 253px; height: 36px; z-index: 11;">
+<div style="display: flex; align-items: center; justify-content: center; height: 100%; color: white; font-weight: 800; font-size: 13px; padding: 0 16px; box-sizing: border-box;">
+<i class="fas fa-check-circle" style="margin-right: 4px;"></i> 承認する
+  </div>
+</div>
+<div data-object="true" data-object-type="shape" id="finger-bg" style="position: absolute; left: 337px; top: 624px; width: 48px; height: 48px; background-color: #FFFFFF; border-radius: 50%; z-index: 19; box-shadow: 0 3px 8px rgba(0,0,0,0.15);"></div>
+<div data-object="true" data-object-type="icon" id="tap-finger" style="position: absolute; left: 346px; top: 617.684px; width: 30px; height: 30px; z-index: 20; font-size: 30px; color: rgb(255, 219, 172);">
+<i class="fas fa-hand-pointer" style="transform: rotate(-20deg);"></i>
+</div>
+<div class="anim-card1" data-object="true" data-object-type="shape" id="card1-bg" style="position: absolute; left: 460px; top: 169px; width: 760px; height: 115px; background-color: rgb(255, 255, 255); border-radius: 16px; z-index: 1; box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 15px;"></div>
+<div class="anim-card1" data-object="true" data-object-type="shape" id="card1-line" style="position: absolute; left: 460px; top: 169px; width: 8px; height: 115px; background-color: rgb(47, 107, 255); border-top-left-radius: 16px; border-bottom-left-radius: 16px; z-index: 2;"></div>
+<div class="anim-card1" data-object="true" data-object-type="textbox" id="card1-num" style="position: absolute; left: 490px; top: 201px; width: 50px; height: 50px; z-index: 10;">
+<div style="width: 46px; height: 46px; border-radius: 50%; border: 2px solid #2F6BFF; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 900; color: #2F6BFF;">1</div>
+</div>
+<div class="anim-card1" data-object="true" data-object-type="textbox" id="card1-text" style="position: absolute; left: 560px; top: 186px; width: 440px; height: 85px; z-index: 10;">
+<div style="font-size: 20px; font-weight: 900; color: #1E293B; margin-bottom: 4px;">Instagram自動投稿</div>
+<div style="font-size: 12px; font-weight: 500; color: #475569; line-height: 1.35;">投稿内容はAIがお店の商圏やペルソナ（見込み客）を判断して作成して画像はGoogleプロフィールから投稿内容に最適な画像を自動で選択します</div>
+</div>
+<div class="anim-card1" data-object="true" data-object-type="icon" id="card1-icon" style="position: absolute; left: 1050px; top: 201px; width: 50px; height: 50px; z-index: 10;">
+<i class="fab fa-instagram" style="font-size: 40px; color: #E1306C;"></i>
+</div>
+<div class="anim-card1" data-object="true" data-object-type="shape" id="card1-badge-bg" style="position: absolute; left: 1120px; top: 209px; width: 84px; height: 34px; background-color: rgb(47, 107, 255); border-radius: 17px; z-index: 10;"></div>
+<div class="anim-card1" data-object="true" data-object-type="textbox" id="card1-badge" style="position: absolute; left: 1120px; top: 209px; width: 84px; height: 34px; z-index: 11;">
+<div style="display: flex; align-items: center; justify-content: center; height: 100%; color: white; font-weight: 900; font-size: 11px; padding: 0 10px; box-sizing: border-box;">AUTO</div>
+</div>
+<div class="anim-card2" data-object="true" data-object-type="shape" id="card2-bg" style="position: absolute; left: 460px; top: 298px; width: 760px; height: 115px; background-color: rgb(255, 255, 255); border-radius: 16px; z-index: 1; box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 15px;"></div>
+<div class="anim-card2" data-object="true" data-object-type="shape" id="card2-line" style="position: absolute; left: 460px; top: 298px; width: 8px; height: 115px; background-color: rgb(47, 107, 255); border-top-left-radius: 16px; border-bottom-left-radius: 16px; z-index: 2;"></div>
+<div class="anim-card2" data-object="true" data-object-type="textbox" id="card2-num" style="position: absolute; left: 490px; top: 330px; width: 50px; height: 50px; z-index: 10;">
+<div style="width: 46px; height: 46px; border-radius: 50%; border: 2px solid #2F6BFF; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 900; color: #2F6BFF;">2</div>
+</div>
+<div class="anim-card2" data-object="true" data-object-type="textbox" id="card2-text" style="position: absolute; left: 560px; top: 315px; width: 360px; height: 85px; z-index: 10;">
+<div style="font-size: 20px; font-weight: 900; color: #1E293B; margin-bottom: 4px;">各種SNS自動連携</div>
+<div style="font-size: 12px; font-weight: 500; color: #475569; line-height: 1.35;">Instagramの投稿内容をFacebook、TikTok、<br/>Google Business Profile、LINEへ自動で一括展開。</div>
+</div>
+<div class="anim-card2" data-object="true" data-object-type="textbox" id="card2-icons" style="position: absolute; left: 930px; top: 330px; width: 170px; height: 50px; z-index: 10;">
+<div style="display: flex; gap: 10px; align-items: center; height: 100%;">
+<i class="fab fa-facebook" style="font-size: 32px; color: #1877F2;"></i>
+<i class="fab fa-tiktok" style="font-size: 32px; color: #000000;"></i>
+<i class="fab fa-google" style="font-size: 32px; color: #4285F4;"></i>
+<i class="fab fa-line" style="font-size: 32px; color: #00B900;"></i>
+</div>
+</div>
+<div class="anim-card2" data-object="true" data-object-type="shape" id="card2-badge-bg" style="position: absolute; left: 1120px; top: 338px; width: 84px; height: 34px; background-color: rgb(47, 107, 255); border-radius: 17px; z-index: 10;"></div>
+<div class="anim-card2" data-object="true" data-object-type="textbox" id="card2-badge" style="position: absolute; left: 1120px; top: 338px; width: 84px; height: 34px; z-index: 11;">
+<div style="display: flex; align-items: center; justify-content: center; height: 100%; color: white; font-weight: 900; font-size: 11px; padding: 0 10px; box-sizing: border-box;">AUTO</div>
+</div>
+<div class="anim-card3" data-object="true" data-object-type="shape" id="card3-bg" style="position: absolute; left: 460px; top: 427px; width: 760px; height: 115px; background-color: rgb(255, 255, 255); border-radius: 16px; z-index: 1; box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 15px;"></div>
+<div class="anim-card3" data-object="true" data-object-type="shape" id="card3-line" style="position: absolute; left: 460px; top: 427px; width: 8px; height: 115px; background-color: rgb(47, 107, 255); border-top-left-radius: 16px; border-bottom-left-radius: 16px; z-index: 2;"></div>
+<div class="anim-card3" data-object="true" data-object-type="textbox" id="card3-num" style="position: absolute; left: 490px; top: 459px; width: 50px; height: 50px; z-index: 10;">
+<div style="width: 46px; height: 46px; border-radius: 50%; border: 2px solid #2F6BFF; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 900; color: #2F6BFF;">3</div>
+</div>
+<div class="anim-card3" data-object="true" data-object-type="textbox" id="card3-text" style="position: absolute; left: 560px; top: 440px; width: 440px; height: 95px; z-index: 10;">
+<div style="font-size: 18px; font-weight: 900; color: #1E293B; margin-bottom: 4px; line-height: 1.15;">Synup が200以上の第三社に連携してAIO/MEO対策を自動実行</div>
+<div style="font-size: 12px; font-weight: 500; color: #475569; line-height: 1.35;">世界最高峰のシステムがAIと地図検索（Google / Apple）<br/>を学習し、上位表示されやすい環境を構築。</div>
+</div>
+<div class="anim-card3" data-object="true" data-object-type="textbox" id="card3-icons" style="position: absolute; left: 960px; top: 459px; width: 140px; height: 50px; z-index: 10;">
+<div style="display: flex; gap: 12px; align-items: center; height: 100%;">
+<span style="font-size: 26px; font-weight: 900; color: #2F6BFF;">Synup</span>
+<i class="fas fa-map-marker-alt" style="font-size: 32px; color: #EA4335;"></i>
+</div>
+</div>
+<div class="anim-card3" data-object="true" data-object-type="shape" id="card3-badge-bg" style="position: absolute; left: 1120px; top: 467px; width: 84px; height: 34px; background-color: rgb(47, 107, 255); border-radius: 17px; z-index: 10;"></div>
+<div class="anim-card3" data-object="true" data-object-type="textbox" id="card3-badge" style="position: absolute; left: 1120px; top: 467px; width: 84px; height: 34px; z-index: 11;">
+<div style="display: flex; align-items: center; justify-content: center; height: 100%; color: white; font-weight: 900; font-size: 11px; padding: 0 10px; box-sizing: border-box;">AUTO</div>
+</div>
+<div class="anim-card4" data-object="true" data-object-type="shape" id="card4-bg" style="position: absolute; left: 460px; top: 556px; width: 760px; height: 115px; background-color: rgb(255, 255, 255); border-radius: 16px; z-index: 1; box-shadow: rgba(0, 0, 0, 0.05) 0px 4px 15px;"></div>
+<div class="anim-card4" data-object="true" data-object-type="shape" id="card4-line" style="position: absolute; left: 460px; top: 556px; width: 8px; height: 115px; background-color: rgb(47, 107, 255); border-top-left-radius: 16px; border-bottom-left-radius: 16px; z-index: 2;"></div>
+<div class="anim-card4" data-object="true" data-object-type="textbox" id="card4-num" style="position: absolute; left: 490px; top: 588px; width: 50px; height: 50px; z-index: 10;">
+<div style="width: 46px; height: 46px; border-radius: 50%; border: 2px solid #2F6BFF; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 900; color: #2F6BFF;">4</div>
+</div>
+<div class="anim-card4" data-object="true" data-object-type="textbox" id="card4-text" style="position: absolute; left: 560px; top: 571px; width: 420px; height: 85px; z-index: 10;">
+<div style="font-size: 20px; font-weight: 900; color: #1E293B; margin-bottom: 4px;">AIが広告を自動出稿</div>
+<div style="font-size: 12px; font-weight: 500; color: #475569; line-height: 1.35;">圧倒的なCPC（クリック1回にかかるコスト）を誇る<br/>AI広告を活用し、新規顧客が自動で流入する仕組みを実現。</div>
+</div>
+<div class="anim-card4" data-object="true" data-object-type="textbox" id="card4-icons" style="position: absolute; left: 1000px; top: 588px; width: 100px; height: 50px; z-index: 10;">
+<div style="display: flex; gap: 16px; align-items: center; height: 100%;">
+<i class="fas fa-bullseye" style="font-size: 30px; color: #F59E0B;"></i>
+<i class="fas fa-chart-line" style="font-size: 30px; color: #10B981;"></i>
+</div>
+</div>
+<div class="anim-card4" data-object="true" data-object-type="shape" id="card4-badge-bg" style="position: absolute; left: 1120px; top: 596px; width: 84px; height: 34px; background-color: rgb(47, 107, 255); border-radius: 17px; z-index: 10;"></div>
+<div class="anim-card4" data-object="true" data-object-type="textbox" id="card4-badge" style="position: absolute; left: 1120px; top: 596px; width: 84px; height: 34px; z-index: 11;">
+<div style="display: flex; align-items: center; justify-content: center; height: 100%; color: white; font-weight: 900; font-size: 11px; padding: 0 10px; box-sizing: border-box;">AUTO</div>
+</div>
+</div>
+<script>
+// index.html がスライド表示時に animate-start クラスを付与するため、
+// このスライド独自の IntersectionObserver は不要。
+</script>
+</body></html>

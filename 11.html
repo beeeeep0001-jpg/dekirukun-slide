@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html data-theme="light" lang="ja" style=""><head>
+<meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+  body { margin: 0; padding: 0; overflow: hidden; font-family: 'Noto Sans JP', sans-serif; }
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+  }
+  .bounce {
+    animation: bounce 2s infinite;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hidden-content {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .visible-content {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    animation: fadeIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  }
+</style>
+</head>
+<body style="">
+<div class="slide-container" style="position: relative; width: 1280px; height: 720px; overflow: hidden; background-color: #F4F7FC;">
+<div data-object="true" data-object-type="shape" id="shape-bg" style="position: absolute; left: 0px; top: 0px; width: 1280px; height: 720px; background-color: #F4F7FC; z-index: 1;"></div>
+<div data-object="true" data-object-type="shape" id="shape-dec1" style="position: absolute; left: 780px; top: -150px; width: 800px; height: 800px; background-color: #DBEAFE; border-radius: 50%; opacity: 0.8; z-index: 1;"></div>
+<div data-object="true" data-object-type="shape" id="shape-dec2" style="position: absolute; left: -200px; top: 300px; width: 600px; height: 600px; background-color: #BFDBFE; border-radius: 50%; opacity: 0.4; z-index: 1;"></div>
+<!-- Header -->
+<div data-object="true" data-object-type="textbox" id="text-label" style="position: absolute; left: 80px; top: 60px; width: 1120px; height: 40px; z-index: 10;">
+<p style="font-size: 20px; color: #2F6BFF; font-weight: 800; text-align: center; margin: 0; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.4;">
+<i class="fas fa-rocket" style="margin-right: 12px;"></i>Next Generation System
+</p>
+</div>
+<div data-object="true" data-object-type="textbox" id="text-heading" style="position: absolute; left: 80px; top: 110px; width: 1120px; height: 80px; z-index: 10;">
+<p style="font-size: 48px; color: #1E293B; font-weight: 900; text-align: center; margin: 0; line-height: 1.4; letter-spacing: 0.05em;">もし、HubCastを導入することで...</p>
+</div>
+<!-- Card 1 -->
+<div data-object="true" data-object-type="shape" id="pt1-bg" style="position: absolute; left: 80px; top: 220px; width: 360px; height: 320px; background-color: #FFFFFF; border-radius: 24px; border: 2px solid #DBEAFE; z-index: 1; box-shadow: 0 10px 30px rgba(0,0,0,0.05);"></div>
+<div data-object="true" data-object-type="textbox" id="pt1-click-guide" style="position: absolute; left: 80px; top: 220px; width: 360px; height: 320px; z-index: 20; cursor: pointer;">
+<div style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
+<div class="bounce" style="background-color: #2F6BFF; color: white; padding: 10px 24px; border-radius: 30px; font-size: 18px; font-weight: 800; box-shadow: 0 4px 10px rgba(47,107,255,0.4);"><i class="fas fa-hand-pointer" style="margin-right: 8px;"></i>クリック</div>
+</div>
+</div>
+<div class="hidden-content" data-object="true" data-object-type="textbox" id="pt1-text1" style="position: absolute; left: 80px; top: 255px; width: 360px; height: 100px; z-index: 10;">
+<div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+<div style="font-size: 20px; color: #1E293B; font-weight: 900; margin-bottom: 6px; line-height: 1.2;">各種SNS投稿が</div>
+<div style="font-size: 36px; color: #1E293B; font-weight: 900; margin-bottom: 12px; line-height: 1.1;"><span style="color: #2F6BFF;">全自動</span>化</div>
+<div style="width: 200px; height: 2px; background-color: #DBEAFE;"></div>
+</div>
+</div>
+<div class="hidden-content" data-object="true" data-object-type="icon" id="pt1-icons" style="position: absolute; left: 80px; top: 365px; width: 360px; height: 60px; z-index: 10;">
+<div style="display: flex; gap: 12px; justify-content: center; align-items: center; width: 100%; height: 100%;">
+<i class="fab fa-instagram" style="font-size: 32px; color: #E1306C;"></i>
+<i class="fab fa-facebook" style="font-size: 32px; color: #1877F2;"></i>
+<i class="fab fa-tiktok" style="font-size: 32px; color: #000000; text-shadow: 1px 1px 0px #FF0050, -1px -1px 0px #00F2FE;"></i>
+<i class="fab fa-google" style="font-size: 32px; color: #4285F4;"></i>
+<i class="fab fa-line" style="font-size: 32px; color: #00B900;"></i>
+</div>
+</div>
+<div class="hidden-content" data-object="true" data-object-type="textbox" id="pt1-badge" style="position: absolute; left: 80px; top: 445px; width: 360px; height: 60px; z-index: 10;">
+<div style="display: flex; justify-content: center; width: 100%;">
+<div style="font-size: 17px; color: #EA580C; font-weight: 800; background-color: #FFF7ED; padding: 6px 14px; border-radius: 20px; border: 1px solid #FFEDD5; letter-spacing: 0.05em;">人件費大幅削減</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div data-object="true" data-object-type="shape" id="pt2-bg" style="position: absolute; left: 460px; top: 220px; width: 360px; height: 320px; background-color: #FFFFFF; border-radius: 24px; border: 2px solid #DBEAFE; z-index: 1; box-shadow: 0 10px 30px rgba(0,0,0,0.05);"></div>
+<div data-object="true" data-object-type="textbox" id="pt2-click-guide" style="position: absolute; left: 460px; top: 220px; width: 360px; height: 320px; z-index: 20; cursor: pointer;">
+<div style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
+<div class="bounce" style="background-color: #2F6BFF; color: white; padding: 10px 24px; border-radius: 30px; font-size: 18px; font-weight: 800; box-shadow: 0 4px 10px rgba(47,107,255,0.4);"><i class="fas fa-hand-pointer" style="margin-right: 8px;"></i>クリック</div>
+</div>
+</div>
+<div class="hidden-content" data-object="true" data-object-type="textbox" id="pt2-text1" style="position: absolute; left: 460px; top: 255px; width: 360px; height: 100px; z-index: 10;">
+<div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+<div style="font-size: 20px; color: #1E293B; font-weight: 900; margin-bottom: 6px; line-height: 1.2;">AIO・MEO対策を</div>
+<div style="font-size: 36px; color: #1E293B; font-weight: 900; margin-bottom: 12px; line-height: 1.1;"><span style="color: #2F6BFF;">完璧</span>網羅</div>
+<div style="width: 200px; height: 2px; background-color: #DBEAFE;"></div>
+</div>
+</div>
+<div class="hidden-content" data-object="true" data-object-type="image" id="pt2-logo" style="position: absolute; left: 460px; top: 365px; width: 360px; height: 60px; z-index: 10;">
+<div style="display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">
+<img src="https://www.genspark.ai/api/files/s/uL6wVFN5" style="height: 44px; object-fit: contain;"/>
+</div>
+</div>
+<div class="hidden-content" data-object="true" data-object-type="textbox" id="pt2-badge" style="position: absolute; left: 460px; top: 445px; width: 360px; height: 60px; z-index: 10;">
+<div style="display: flex; justify-content: center; width: 100%;">
+<div style="font-size: 17px; color: #EA580C; font-weight: 800; background-color: #FFF7ED; padding: 6px 14px; border-radius: 20px; border: 1px solid #FFEDD5; letter-spacing: 0.05em;">AI時代へのリスク回避</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div data-object="true" data-object-type="shape" id="pt3-bg" style="position: absolute; left: 840px; top: 220px; width: 360px; height: 320px; background-color: #FFFFFF; border-radius: 24px; border: 2px solid #FECACA; z-index: 1; box-shadow: 0 10px 30px rgba(239,68,68,0.1);"></div>
+<div data-object="true" data-object-type="textbox" id="pt3-click-guide" style="position: absolute; left: 840px; top: 220px; width: 360px; height: 320px; z-index: 20; cursor: pointer;">
+<div style="width: 100%; height: 100%; display: flex; justify-content: center; align-items: center;">
+<div class="bounce" style="background-color: #2F6BFF; color: white; padding: 10px 24px; border-radius: 30px; font-size: 18px; font-weight: 800; box-shadow: 0 4px 10px rgba(47,107,255,0.4);"><i class="fas fa-hand-pointer" style="margin-right: 8px;"></i>クリック</div>
+</div>
+</div>
+<div class="hidden-content" data-object="true" data-object-type="textbox" id="pt3-text1" style="position: absolute; left: 840px; top: 255px; width: 360px; height: 100px; z-index: 10;">
+<div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+<div style="font-size: 20px; color: #1E293B; font-weight: 900; margin-bottom: 6px; line-height: 1.2;">新規集客が平均</div>
+<div style="display: flex; justify-content: center; align-items: baseline; margin-bottom: 10px;">
+<div style="font-size: 42px; color: #1E293B; font-weight: 900; line-height: 1;"><span style="color: #EF4444;">30</span>%<span style="font-size: 26px; color: #EF4444; margin-left: 2px;">UP</span></div>
+</div>
+<div style="width: 200px; height: 2px; background-color: #FECACA;"></div>
+</div>
+</div>
+<div class="hidden-content" data-object="true" data-object-type="icon" id="pt3-icons" style="position: absolute; left: 840px; top: 365px; width: 360px; height: 60px; z-index: 10;">
+<div style="display: flex; justify-content: center; align-items: center; gap: 12px; color: #EF4444; width: 100%; height: 100%;">
+<i class="fas fa-chart-line" style="font-size: 36px;"></i>
+<i class="fas fa-users" style="font-size: 32px; opacity: 0.8;"></i>
+</div>
+</div>
+<div class="hidden-content" data-object="true" data-object-type="textbox" id="pt3-badge" style="position: absolute; left: 840px; top: 445px; width: 360px; height: 60px; z-index: 10;">
+<div style="display: flex; justify-content: center; width: 100%;">
+<div style="font-size: 18px; color: #EF4444; font-weight: 900; background-color: #FEF2F2; padding: 6px 20px; border-radius: 20px; border: 1px solid #FEE2E2; letter-spacing: 0.05em;">売上もUP</div>
+</div>
+</div>
+<!-- Bottom Banner -->
+<div data-object="true" data-object-type="shape" id="bottom-container" style="position: absolute; left: 140px; top: 580px; width: 1000px; height: 100px; z-index: 10;">
+<div style="width: 100%; height: 100%; background-color: #2F6BFF; border-radius: 50px; box-shadow: 0 15px 35px rgba(47,107,255,0.3); display: flex; align-items: center; justify-content: center;">
+<p id="bottom-text" style="font-size: 34px; color: #FFFFFF; font-weight: 900; text-align: center; margin: 0; letter-spacing: 0.03em; text-shadow: 1px 1px 2px rgba(0,0,0,0.2); line-height: 1.1;">こんなシステムがあったら興味ありますか？</p>
+</div>
+</div>
+</div>
+<script>
+  (function init() {
+    const cards = [
+      { guide: '#pt1-click-guide', contents: ['#pt1-text1', '#pt1-icons', '#pt1-badge'] },
+      { guide: '#pt2-click-guide', contents: ['#pt2-text1', '#pt2-logo', '#pt2-badge'] },
+      { guide: '#pt3-click-guide', contents: ['#pt3-text1', '#pt3-icons', '#pt3-badge'] }
+    ];
+
+    let clickCount = 0;
+    const clicked = [false, false, false];
+
+    cards.forEach((card, index) => {
+      const guideEl = document.querySelector(card.guide);
+      if (!guideEl) return;
+      guideEl.addEventListener('click', () => {
+        if (clicked[index]) return;
+        clicked[index] = true;
+        clickCount++;
+
+        guideEl.style.display = 'none';
+
+        card.contents.forEach((id, idx) => {
+          const el = document.querySelector(id);
+          if (el) {
+            el.classList.remove('hidden-content');
+            el.classList.add('visible-content');
+            el.style.animationDelay = (idx * 0.15) + 's';
+          }
+        });
+
+        if (clickCount === 3) {
+          const bottomText = document.querySelector('#bottom-text');
+          if (bottomText) {
+            bottomText.classList.remove('hidden-content');
+            bottomText.classList.add('visible-content');
+            bottomText.style.animationDelay = '0.3s';
+          }
+        }
+      });
+    });
+  })();
+</script>
+</body></html>
